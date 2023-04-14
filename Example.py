@@ -1,32 +1,3 @@
-# Задача - нахождение суммы чисел по диагонали в матрице
-
-# import random
-#
-# matrix = [[random.randint(1, 10) for j in range(4)] for i in range(4)]
-#
-# print("Matrix:")
-# for row in matrix:
-#     print(row)
-#
-# left_right_sum = 0
-# right_left_sum = 0
-#
-# for i in range(len(matrix)):
-#     left_right_sum += matrix[i][i]
-#     right_left_sum += matrix[i][len(matrix)-i-1]
-#
-# print("Sum of diagonal (left to right):", left_right_sum)
-# print("Sum of diagonal (right to left):", right_left_sum)
-
-# В этом примере мы создаем матрицу 4x4, заполненную случайными числами от 1 до 10.
-# Затем мы выводим матрицу на экран и вычисляем сумму элементов по диагонали
-# с лева на право и с права на лево с помощью цикла.
-# Для вычисления суммы элементов по диагонали с лева на право мы используем индексы,
-# равные номеру строки и номеру столбца, то есть `matrix[i][i]`.
-# Для вычисления суммы элементов по диагонали с права на лево мы используем индексы,
-# равные номеру строки и общему количеству столбцов минус номер столбца минус 1,
-# то есть `matrix[i][len(matrix)-i-1]`.
-
 # Задачи на 15.04.2023.
 
 # модуль ООП. Тема: классы и объекты.
@@ -152,3 +123,109 @@
 # Stadium1.print_info()
 # Stadium1.set_info()
 # Stadium1.print_info()
+
+# Задачи 16.04 Тема: Статические методы
+
+#  К уже реализованному классу «Дробь» добавьте статический метод,
+#  который при вызове возвращает количество созданных объектов класса «Дробь».
+
+# class Fraction:
+#     count = 0
+#
+#     def __init__(self, numerator, denominator):
+#         self.numerator = numerator
+#         self.denominator = denominator
+#         Fraction.count += 1
+#
+#     @staticmethod
+#     def get_count():
+#         return Fraction.count
+#
+#     def __add__(self, other):
+#         if isinstance(other, int):
+#             other = Fraction(other, 1)
+#         common_denominator = self.denominator * other.denominator
+#         common_numerator = self.numerator * other.denominator + other.numerator * self.denominator
+#         return Fraction(common_numerator, common_denominator)
+#
+#     def __sub__(self, other):
+#         if isinstance(other, int):
+#             other = Fraction(other, 1)
+#         common_denominator = self.denominator * other.denominator
+#         common_numerator = self.numerator * other.denominator - other.numerator * self.denominator
+#         return Fraction(common_numerator, common_denominator)
+#
+#     def __mul__(self, other):
+#         if isinstance(other, int):
+#             other = Fraction(other, 1)
+#         numerator = self.numerator * other.numerator
+#         denominator = self.denominator * other.denominator
+#         return Fraction(numerator, denominator)
+#
+#     def __truediv__(self, other):
+#         if isinstance(other, int):
+#             other = Fraction(other, 1)
+#         numerator = self.numerator * other.denominator
+#         denominator = self.denominator * other.numerator
+#         return Fraction(numerator, denominator)
+#
+# f1 = Fraction(1, 2)
+# f2 = Fraction(3, 4)
+# f3 = Fraction(2, 5)
+#
+# print(Fraction.get_count())
+
+# Задание 2
+# Создайте класс для конвертирования температуры из
+# Цельсия в Фаренгейт и наоборот. У класса должно быть
+# два статических метода: для перевода из Цельсия в Фаренгейт и для перевода из Фаренгейта в Цельсий. Также
+# класс должен считать количество подсчетов температуры и
+# возвращать это значение с помощью статического метода.
+
+# class UnitConverter:
+#     @staticmethod
+#     def meters_to_feet(meters):
+#         return meters * 3.28084
+#     @staticmethod
+#     def feet_to_meters(feet):
+#         return feet / 3.28084
+#     @staticmethod
+#     def meters_to_yards(meters):
+#         return meters * 1.09361
+#     @staticmethod
+#     def yards_to_meters(yards):
+#         return yards / 1.09361
+#     @staticmethod
+#     def meters_to_miles(meters):
+#         return meters / 1609.344
+#     @staticmethod
+#     def miles_to_meters(miles):
+#         return miles * 1609.344
+#
+# print(UnitConverter.meters_to_feet(10))
+# print(UnitConverter.feet_to_meters(32.8084))
+# print(UnitConverter.meters_to_yards(100))
+
+# Задание 3
+# Создайте класс для перевода из метрической системы
+# в английскую и наоборот. Функциональность необходимо
+# реализовать в виде статических методов. Обязательно
+# реализуйте перевод мер длины.
+
+# class TemperatureConverter:
+#     count = 0
+#     @staticmethod
+#     def celsius_to_fahrenheit(celsius):
+#         TemperatureConverter.count += 1
+#         return celsius * 1.8 + 32
+#     @staticmethod
+#     def fahrenheit_to_celsius(fahrenheit):
+#         TemperatureConverter.count += 1
+#         return (fahrenheit - 32) / 1.8
+#     @staticmethod
+#     def get_conversion_count():
+#         return TemperatureConverter.count
+#
+# print(TemperatureConverter.celsius_to_fahrenheit(0))
+# print(TemperatureConverter.fahrenheit_to_celsius(32))
+# print(TemperatureConverter.celsius_to_fahrenheit(100))
