@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="RU-ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Product List</title>
+</head>
+<body>
+    <h1>Product List</h1>
+    <ul>
+        <li>Product A -
+                Дорогой</li>
+        <li>Product B -
+                Средняя цена
+            </li>
+        <li>Product C -
+                Дорогой</li>
+        </ul>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product List</title>
+</head>
+<body>
+    <h1>Product List</h1>
+    <ul>
+        {% macro display_price(price) %}
+            {% if price < 10 %}
+                Доступный
+            {% elif price < 20 %}
+                Средняя цена
+            {% else %}
+                Дорогой
+            {% endif %}
+        {% endmacro %}
+        {% for product in products %}
+            <li>{{ product.name }} - {{ display_price(product.price) }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+
+
