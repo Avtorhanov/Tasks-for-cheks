@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+
+    <h2>Список:</h2>
+    <ul>
+        {% for subject, topic in lessons_data.items() %}
+            <li>{{ subject }} - {{ topic }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Добавить:</h2>
+    <form method="POST" action="/lessons">
+        <label for="subject">Предмет:</label>
+        <input type="text" id="subject" name="subject" required><br><br>
+
+        <label for="topic">Тема занятия:</label>
+        <input type="text" id="topic" name="topic" required><br><br>
+
+        <input type="submit" value="Добавить">
+    </form>
+
+    <a href="/">На главную</a>
+</body>
+</html>
