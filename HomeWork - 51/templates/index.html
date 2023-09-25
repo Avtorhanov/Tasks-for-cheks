@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Главная</title>
+</head>
+<body class="index">
+
+{% extends 'base.html' %}
+
+{% block title %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+    <h1>Дневник</h1>
+
+    <h2>Справочник - меню</h2>
+    <a href="/teach">Написать учителю</a>
+    <a href="/rating">Мои оценки</a>
+    <a href="/lessons">Классные занятия</a>
+    <a href="/homework">Домашняя работа</a>
+    <a href="/notes">Мои заметки</a>
+<h2>Добавленные:</h2>
+    <ul>
+        {% for subject, assignment in notes.items() %}
+            <li>{{ subject }} - {{ assignment }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+</body>
+</html>
+
