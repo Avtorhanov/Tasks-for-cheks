@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+
+    <h2>Список:</h2>
+    <ul>
+        {% for subject, assignment in notes.items() %}
+            <li>{{ subject }} - {{ assignment }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Добавить:</h2>
+    <form method="POST" action="/notes">
+        <label for="subject">Придумай тему:</label>
+        <input type="text" id="subject" name="subject" required><br><br>
+
+        <label for="assignment">Описание:</label>
+        <textarea id="assignment" name="assignment" rows="4" cols="50" required></textarea><br><br>
+
+        <input type="submit" value="Добавить">
+    </form>
+
+    <a href="/">На главную</a>
+</body>
+</html>
